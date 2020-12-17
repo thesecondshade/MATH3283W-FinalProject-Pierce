@@ -1,0 +1,77 @@
+\documentclass[a4paper,12pt]{article} 
+\usepackage[top = 2.5cm, bottom = 2.5cm, left = 2.5cm, right = 2.5cm]{geometry} % Format page's margins
+\usepackage{amsmath, amssymb, amsthm} % Formats the document as a proof
+\usepackage{fancyhdr, graphicx} % Format page with name, date and class
+
+\usepackage{microtype} % Modifies spacing between letters and words
+\usepackage{mathpazo} % Modifies font
+\usepackage{parskip} % Left justifies new paragraphs
+
+\linespread{1.1} 
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\footnotesize MATH 3283W Latex Project}
+\chead{\footnotesize Victoria Pierce} 
+\rhead{17 Dec 2020}
+\cfoot{\footnotesize \thepage} 
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+\usepackage[utf8]{inputenc}
+
+\title{LaTex Project: Problem 4.3.11}
+\author{Victoria Pierce }
+\date{December 3rd, 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Monotone Convergence Theorem Proof}
+    \textbf{Claim} A monotone sequence is convergent if and only if it is bounded.
+    
+    
+    \begin{proof}                                 
+    Let $S_{n}$ be a monotone sequence. Assume that $S_{n}$ is convergent. By Theorem 4.1.13, "Every convergent sequence is bounded", $S_{n}$ must also be bounded.
+    
+    Since a monotone sequence can either be increasing or decreasing, there must exist two cases. One case in which the sequence $S_{n}$ is increasing and one in which the sequence $S_{n}$ is decreasing.
+    
+    \textbf{Case 1:}  Suppose for case 1 that $S_{n}$ is an increasing sequence. We have that the sequence must be bounded and therefore there must exist M such that for all n in $\N$, $S_{n}\leq M$ and therefore, since $S_{n}$ is bounded, then the set $\{S_{n}: n \in \N\}$ must also be bounded. By the \textbf{Completeness Axiom}, this set has a supremum in $\R$, define $L$ as the supremum of $S_{n}$.
+    \vspace{2mm}
+    
+    Now, we will let there exist some $\epsilon$ exist, such that $\epsilon>0$. L is the supremum of $(S_{n})$ and therefore, it is the least upper bound of $(S_{n})$, since L is the least upper bound and $\epsilon$ is greater than zero, we can say that  $L-\epsilon$ cannot be an upper bound to the set. Since $(S_{n})$ is an increasing set there must also exist some $N$ such that $n\geq N$ and $S_{N} \leq S_{n}$. Therefore:
+    \begin{center}
+        $L-\epsilon < L \leq S_{N} \leq S_{n} < L +\epsilon$
+    \end{center}
+    After simplifying, we have:
+    \begin{center}
+        $L-\epsilon < S_{n} < L +\epsilon$
+    \end{center}
+    And furthermore:
+     \begin{center}
+        $|S_{n}-L|<\epsilon$
+    \end{center}
+    Therefore, the limit of $S_{n}$ is L and $S_{n}$ converges to L.
+       \vspace{2mm}
+
+    \textbf{Case 2:} Suppose for case 2 that $S_{n}$ is a decreasing sequence. We have that $S_{n}$ is bounded and therefore there must exist some M in $\R$ such that for all n in $\N$, we have that $M \leq S_{n}$. Considering the set $\{S_{n}: n \in \N\}$, given that $S_{n}$ is convergent, we can also say that the set is bounded. Define $L$ as the infimum of $S_{n}$.
+    
+    Now, we will let there exist some $\epsilon$, such that $\epsilon>0$. Given that $L$ is the infimum, L must be the greatest lower bound of $S_{n}$ and since we know $\epsilon$ is greater than zero, $L + \epsilon$ cannot be lower bound to the set. Furthermore, since $S_{n}$ is a decreasing sequence, there must exist some N such that for all $n \geq N$ and $S_{N}\geq S_{n}$. Therefore:
+    \begin{center}
+        $L-\epsilon<L\leq S_{n}\leq S_{N} < L+\epsilon$
+    \end{center}
+    And after simplifying:
+     \begin{center}
+        $L-\epsilon\leq S_{n}< L+\epsilon$
+        $|S_{n}-L|<\epsilon$
+    \end{center}
+    Therefore, the limit of $S_{n}$ is L and $S_{n}$ converges to L.
+    \vspace{2mm}
+
+    Since both the increasing and decreasing cases converge, we can conclude that a monotone sequence is convergent if and only if it is bounded.
+    
+\end{proof}
+    
+
+\end{document}
